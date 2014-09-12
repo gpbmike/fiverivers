@@ -1,0 +1,22 @@
+{
+  "name": "fiverivers",
+  "version": "0.0.0",
+  "authors": [
+    "Mike Horn <gpbmike@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "~3.1.8",
+    "lightbox": "~2.7.1",
+    "neat": "~1.6.0",
+    "normalize-css": "~3.0.1",
+    "jquery": "~2.1.1"
+  }
+}

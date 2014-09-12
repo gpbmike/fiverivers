@@ -1,0 +1,44 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{{ item.name }} - {% parent %}{% endblock %}
+
+{% block headerimage %}
+  {% if item.image %}
+    <img src="{{ item.image.url|imageSize(150) }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <section>
+    {{ item.biography|safe }}
+  </section>
+  {% if item.gallery or item.stories %}
+  <aside>
+    {% if item.gallery %}
+      <section class="gallery">
+        <header>Photo Gallery</header>
+        <ul>
+          {% for image in item.gallery %}
+            <li><a href="{{ image.url }}" data-lightbox="gallery" data-title="{{ image.caption }}"><img src="{{ image.url|imageCrop(80,80) }}"></a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+    {% if item.stories %}
+      <section>
+        <header>Stories</header>
+        <ul>
+          {% for story in item.stories %}
+            {% set rel = getItem(story) %}
+            <li><a href="{{ url(rel) }}">{{ rel.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+  </aside>
+  {% endif %}
+</article>
+
+{% endblock %}

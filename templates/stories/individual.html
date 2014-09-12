@@ -1,0 +1,31 @@
+{% extends "templates/partials/base.html" %}
+
+{% block headerimage %}
+  {% if item.image %}
+    <img src="{{ item.image.url|imageSize(150) }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <section>
+    <h2>{{ item.name }}</h2>
+    {{ item.story|safe }}
+    {{ item.publish_date|date('F d Y') }}
+  </section>
+  {% if item.gallery %}
+    <aside>
+      <section class="gallery">
+        <header>Photo Gallery</header>
+        <ul>
+          {% for image in item.gallery %}
+            <li><a href="{{ image.url }}" data-lightbox="gallery" data-title="{{ image.caption }}"><img src="{{ image.url|imageCrop(80,80) }}"></a></li>
+          {% endfor%}
+        </ul>
+      </section>
+    </aside>
+  {% endif %}
+</article>
+
+{% endblock %}

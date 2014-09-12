@@ -1,0 +1,26 @@
+{# YOUR HOMEPAGE #}
+
+{# First time seeing extend or blocks? Want to know how it works? Tutorial here: http://www.webhook.com #}
+{% extends "templates/partials/base.html" %}
+
+{% block headerimage %}<img src="/static/images/header.png">{% endblock %}
+
+{% block content %}
+
+{% set welcome = get('welcome') %}
+
+<article>
+  <section>
+    {{ welcome.message|safe }}
+  </section>
+  <aside class="gallery">
+    <header>Photo Gallery</header>
+    <ul>
+      {% for image in welcome.gallery %}
+        <li><a href="{{ image.url }}" data-lightbox="gallery" data-title="{{ image.caption }}"><img src="{{ image.url|imageCrop(80,80) }}"></a></li>
+      {% endfor%}
+    </ul>
+  </aside>
+</article>
+
+{% endblock %}

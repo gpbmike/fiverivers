@@ -1,0 +1,25 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}Descendants - {% parent %}{% endblock %}
+
+{% block content %}
+
+  {# Copy this to any page you want descendants data on. #}
+  {% set data = get('descendants') %}
+
+  {# This is how you set pagination. #}
+  {% set data = paginate(data, 5) %}
+
+  <h1>List of descendants</h1>
+
+  {# Scaffolding only outputs the object.name, but feel to use any of the fields from your CMS form here. #}
+  <ul>
+    {% for id, object in data %}
+      <li><a href="{{ url(object) }}">{{ object.name }}</a></li>
+    {% endfor %}
+  </ul>
+
+  {# The actual pagination template, feel free to edit or replace the default one. #}
+  {% include "templates/partials/paginator.html" %}
+
+{% endblock %}
