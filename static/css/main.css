@@ -103,26 +103,28 @@ article {
       text-transform: uppercase; }
 
 /*Gallery Thumbnail Grid*/
-.gallery ul {
-  margin: 0;
-  padding: 0; }
-.gallery li {
-  display: inline-block;
-  list-style: none;
-  margin-bottom: 15px;
-  margin-right: 15px; }
-.gallery a {
-  display: block;
-  background-color: #CD6A48;
-  border: 1px solid #AB5A3E;
-  padding: 4px; }
-  .gallery a:hover {
-    background-color: #a32e06;
-    border: 1px solid #a32e06; }
-.gallery img {
-  display: block;
-  width: 80px;
-  height: 80px; }
+.gallery {
+  padding-top: 1em; }
+  .gallery ul {
+    margin: 0;
+    padding: 0; }
+  .gallery li {
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 15px;
+    margin-right: 15px; }
+  .gallery a {
+    display: block;
+    background-color: #CD6A48;
+    border: 1px solid #AB5A3E;
+    padding: 4px; }
+    .gallery a:hover {
+      background-color: #a32e06;
+      border: 1px solid #a32e06; }
+  .gallery img {
+    display: block;
+    width: 80px;
+    height: 80px; }
 
 #site-footer {
   clear: both;
