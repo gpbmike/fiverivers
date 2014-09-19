@@ -39,10 +39,10 @@
         {% block headerimage %}{% endblock %}
         <nav>
           <a href="/">Home</a>
-          {% set ancestors = get('ancestors') %}
-          {% for ancestor in ancestors %}
+          {% for ancestor in cms.ancestors|where('featured', 'Yes') %}
             <a href="{{ url(ancestor) }}">{{ ancestor.name }}</a>
           {% endfor %}
+          <a href="/elders/">Elders</a>
           <a href="/descendants/">Descendants</a>
         </nav>
       </header>
