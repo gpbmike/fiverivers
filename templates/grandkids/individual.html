@@ -1,0 +1,23 @@
+{% extends "templates/partials/base.html" %}
+
+{% block title %}{{ item.name }} - {% parent %}{% endblock %}
+
+{% block headerimage %}
+  {% if item.image %}
+    <img src="{{ item.image.url|imageSize(150) }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<article>
+  <section>
+    <h2>{{ item.name }}</h2>
+    {{ item.biography|safe }}
+    {% if item.parent %}
+      <div>Child of <a href="{{ url(item.parent) }}">{{ item.parent.name }}</a>.</div>
+    {% endif %}
+  </section>
+</article>
+
+{% endblock %}

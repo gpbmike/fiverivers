@@ -15,7 +15,16 @@
   {# Scaffolding only outputs the object.name, but feel to use any of the fields from your CMS form here. #}
   <ul>
     {% for id, object in data %}
-      <li><a href="{{ url(object) }}">{{ object.name }}</a></li>
+      <li>
+        <a href="{{ url(object) }}">{{ object.name }}</a>
+        {% if object.kids %}
+          <ul>
+            {% for kid in object.kids %}
+              <li><a href="{{ url(kid) }}">{{ kid.name }}</a>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
     {% endfor %}
   </ul>
 

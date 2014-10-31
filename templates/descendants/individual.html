@@ -14,6 +14,9 @@
   <section>
     <h2>{{ item.name }}</h2>
     {{ item.biography|safe }}
+    {% if item.kids %}
+      <div>Parent of {% for kid in item.kids %}{% if loop.last %} and {% else %}{% if not loop.first %}, {% endif %}{% endif %}<a href="{{ url(kid) }}">{{ kid.name }}</a>{% endfor %}.</div>
+    {% endif %}
   </section>
   {% if item.gallery %}
     <aside class="gallery">
